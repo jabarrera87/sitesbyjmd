@@ -67,7 +67,79 @@
     townIn.addEventListener("change", function () { update(true); });
     tradeIn.addEventListener("change", function () { update(true); });
     form.addEventListener("submit", function (e) { e.preventDefault(); update(true); });
+
+    /* Signature moment: the phone runs a few local searches on its own
+       until the visitor touches the form. Skipped for reduced motion. */
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var callBtn = listing.querySelector(".call");
+    var examples = [
+      ["Main Street Barber", "barber", "Pleasanton"],
+      ["Rosa's Tacos", "restaurant", "Poteet"],
+      ["Brush Country Auto", "mechanic", "Jourdanton"],
+      ["Lytle Lawn & Land", "landscaper", "Lytle"]
+    ];
+    var demoOn = !reduce && "IntersectionObserver" in window;
+    var demoTimers = [];
+    var stopDemo = function () {
+      if (!demoOn) return;
+      demoOn = false;
+      demoTimers.forEach(clearTimeout);
+      outSearch.classList.remove("is-typing");
+      update(false);
+    };
+    ["focusin", "pointerdown"].forEach(function (ev) { form.addEventListener(ev, stopDemo); });
+
+    var later = function (fn, ms) { demoTimers.push(setTimeout(fn, ms)); };
+    var runExample = function (i) {
+      if (!demoOn) return;
+      var ex = examples[i % examples.length];
+      var query = ex[1] + " near " + ex[2];
+      outSearch.textContent = "";
+      outSearch.classList.add("is-typing");
+      for (var c = 1; c <= query.length; c++) {
+        (function (n) { later(function () { outSearch.textContent = query.slice(0, n); }, n * 45); })(c);
+      }
+      later(function () {
+        outSearch.classList.remove("is-typing");
+        outName.textContent = ex[0];
+        var label = "";
+        for (var k = 0; k < tradeIn.options.length; k++) if (tradeIn.options[k].value === ex[1]) label = tradeIn.options[k].text;
+        outMeta.innerHTML = "";
+        var o = document.createElement("span"); o.className = "open"; o.textContent = "Open";
+        outMeta.appendChild(o);
+        outMeta.appendChild(document.createTextNode(" \u00b7 " + label + " in " + ex[2] + ", TX"));
+        outSite.textContent = slug(ex[0]) + ".com";
+        listing.classList.remove("is-updating"); void listing.offsetWidth; listing.classList.add("is-updating");
+      }, query.length * 45 + 350);
+      later(function () {
+        callBtn.classList.remove("is-ping"); void callBtn.offsetWidth; callBtn.classList.add("is-ping");
+      }, query.length * 45 + 900);
+      later(function () { runExample(i + 1); }, query.length * 45 + 3600);
+    };
+    if (demoOn) {
+      var phone = document.querySelector(".phone");
+      var started = false;
+      new IntersectionObserver(function (en, obs) {
+        if (en[0].isIntersecting && !started) { started = true; obs.disconnect(); later(function () { runExample(0); }, 700); }
+      }).observe(phone);
+    }
   }
+
+  /* Header shifts one tone once the page scrolls */
+  var head = document.querySelector(".site-header");
+  if (head) {
+    var onScroll = function () { head.classList.toggle("is-scrolled", window.scrollY > 8); };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* Footer name sweeps in once */
+  var word = document.querySelector(".footer-word");
+  if (word && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (en, obs) {
+      if (en[0].isIntersecting) { word.classList.add("is-in"); obs.disconnect(); }
+    }, { threshold: 0.4 }).observe(word);
+  } else if (word) { word.classList.add("is-in"); }
 
   /* Contact form: client-side checks, then post to the form service */
   var contact = document.getElementById("contact-form");

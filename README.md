@@ -92,7 +92,16 @@ Until then, the form shows a "not connected yet" message. It already includes a 
 - **Direction:** Bold local studio, built on the existing JM Designs brand: navy ground (`--navy` #010F28), lime for actions (`--lime` #8EF116), cyan for links and focus (`--cyan` #07BEF6). Sora for headings, DM Sans for text (Google Fonts, free for commercial use).
 - **Idea:** The search a neighbor types on their phone becomes the hero. Visitors type their business name and town and see their own listing with a one-tap Call button. Nothing they type is sent anywhere.
 - **Vocabulary:** Type scale (`--step-display`, `--step-title`, `--step-sub`, `--step-body`), vertical rhythm (`--section`, `--space-1`…`--space-5`), measure (`--measure`, about 62 characters), tonal steps (`--navy` → `--navy-2` → `--navy-3`) instead of borders and shadows.
-- **Motion:** Sections fade up once as they scroll in. Buttons press down slightly. The preview listing slides in when it changes. Movement is turned off for people who set "reduce motion" on their device, and everything stays visible if JavaScript fails.
+- **Motion:** The main moment is the hero phone. Once it's on screen, it types out local searches by itself ("barber near Pleasanton", "restaurant near Poteet") and the listing and Call button update, until the visitor touches the form. Other motion:
+  - Sections fade up once as they scroll in
+  - The big "JM Designs" footer name sweeps in
+  - Homepage service rows turn lime on hover (mouse only)
+  - Process step numbers stay pinned while you read each step
+  - The header shifts one shade darker on scroll
+  - Buttons press down slightly
+
+  Movement is turned off for people who set "reduce motion" on their device, and everything stays visible if JavaScript fails.
+- **Drawn examples:** Each service on the Services page has an example drawn in code: a website on a computer and a phone, a Google listing with a printed review QR card, a month of care-plan updates, and a printed menu. They use made-up example businesses (Rosa's Tacos, Main Street Barber) and are captioned "Example". Swap in real client work when you have it.
 
 ## Checks run
 
