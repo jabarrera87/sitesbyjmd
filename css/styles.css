@@ -606,3 +606,17 @@ html { scrollbar-color: var(--navy-3) var(--navy); accent-color: var(--lime); }
   .mock-mini { width: 40%; min-width: 7.5rem; }
   .mock-mini .mock-block { display: none; }
 }
+
+/* ---------- Logo and photography ---------- */
+.brand-logo { width: auto; height: 2.75rem; }
+@media (min-width: 60em) { .brand-logo { height: 3.5rem; } }
+.bleed { margin: 0; }
+.bleed img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; object-position: 50% 45%; }
+@media (max-width: 40em) { .bleed img { aspect-ratio: 4 / 3; } }
+.page-head-grid { display: grid; gap: var(--space-4); align-items: center; }
+.page-head-media { margin: 0; }
+.page-head-media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+@media (min-width: 60em) {
+  .page-head-grid { grid-template-columns: 1.05fr 0.95fr; gap: clamp(3rem, 5vw, 6rem); }
+}
+.svc-visual .svc-photo { width: 100%; height: auto; background: var(--navy-2); padding: clamp(1rem, 0.5rem + 2vw, 2.5rem); }

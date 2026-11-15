@@ -59,9 +59,21 @@ Search the project for each placeholder and replace every match.
 
 **Booking buttons:** The "Book a free call" buttons currently go to the contact page. Once you have a scheduling link, you can point them at `BOOKING_URL` instead. Search for `contact.html#book`.
 
+## Photos in use
+
+| File | Where |
+| --- | --- |
+| `images/shop-owners.webp` | Home, full-width photo under the promise line |
+| `images/planning-a-site.webp` | Top of Services |
+| `images/devices.webp` | Services, Custom websites example |
+| `images/first-meeting.webp` | Top of Process |
+| `images/talking-it-through.webp` | Top of Contact |
+
+All photos are WebP, 1536px wide or less, under 200KB each.
+
 ## Content still needed
 
-- **Logo:** The header uses a text version of the JMD logo so it stays sharp. To use your image file instead, add `images/logo-white.png` (fixing the old "logo_whtie" spelling) and replace the `<span class="brand-mark">` lines in each page header with `<img src="images/logo-white.png" alt="JM Designs" width="120" height="61">`.
+- **Logo:** Done. The header uses `images/logo-white.png` (your transparent white logo, resized).
 - **Your photo:** Save it as `images/jacob.jpg` (about 800×1000), then swap it in where `index.html` says `PLACEHOLDER` in the Meet Jacob section.
 - **Recent work:** Add three project screenshots (`images/work-1.jpg` etc.) with real business names in `index.html`. If you don't have three yet, delete the "Recent work" section until you do.
 - **Testimonials:** Add real client quotes only, in `index.html` and `process.html`. Copy the text from your Google reviews with permission.
