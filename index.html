@@ -133,6 +133,7 @@
               </div>
             </div>
           </div>
+          <button class="demo-toggle" type="button" id="demo-toggle" hidden aria-pressed="false">Pause demo</button>
           <form class="preview-form" id="preview-form" aria-describedby="pv-note">
             <fieldset>
               <legend>See your business here</legend>
@@ -172,15 +173,10 @@
       </div>
     </section>
 
-    <section class="promises" aria-labelledby="promises-title">
-      <h2 id="promises-title" class="visually-hidden">What working with me is like</h2>
-      <div class="wrap">
-        <ul data-reveal>
-          <li><strong>You talk to me</strong><span>No account managers or call centers. The person you call is the person building your site.</span></li>
-          <li><strong>Plain English</strong><span>I explain every choice without tech talk, and I answer your questions.</span></li>
-          <li><strong>You own it</strong><span>Your domain, your website and your Google listing stay in your name.</span></li>
-          <li><strong>Local</strong><span>I work with businesses across Atascosa County and can meet in person.</span></li>
-        </ul>
+    <section class="promise" aria-labelledby="promise-title">
+      <div class="wrap promise-grid" data-reveal>
+        <h2 id="promise-title" class="promise-line">You talk to me, start to finish. Plain English, no account managers, and everything stays in your name.</h2>
+        <p class="promise-side">Based in [CITY] and working across Atascosa County. Happy to meet at your shop.</p>
       </div>
     </section>
 
@@ -195,6 +191,18 @@
           <li><a href="services.html#google"><h3>Google Maps &amp; reviews</h3><p>Get on the map, collect reviews and let customers book online.</p><span class="price">From [PRICE]</span></a></li>
           <li><a href="services.html#care"><h3>Monthly care plan</h3><p>Hosting, updates, backups and small changes, handled for you.</p><span class="price">[PRICE]/month</span></a></li>
           <li><a href="services.html#graphics"><h3>Graphic design</h3><p>Logos, menus, flyers, signs and social media graphics.</p><span class="price">From [PRICE]</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section who" aria-labelledby="who-title">
+      <div class="wrap">
+        <div class="section-head split" data-reveal>
+          <h2 id="who-title">Who I build for</h2>
+          <p>If your customers look you up on their phone before they call or drive over, I can help.</p>
+        </div>
+        <ul class="who-list" data-reveal>
+          <li>Barbershops</li><li>Restaurants</li><li>Taquerias</li><li>Auto shops</li><li>Plumbers</li><li>Electricians</li><li>Hair salons</li><li>Feed stores</li><li>Landscapers</li><li>Contractors</li><li>Food trucks</li><li>Boutiques</li>
         </ul>
       </div>
     </section>
@@ -255,8 +263,8 @@
       <div class="wrap" data-reveal>
         <h2 id="cta-title">Get a free website check-up.</h2>
         <div class="cta-side">
-          <p>I'll look at your website and Google listing the way a customer would, then send you a short list of what to fix first. Free, and you don't have to hire me.</p>
-          <a class="btn btn-navy" href="contact.html#book">Get my free check-up</a>
+          <p>I'll look at your website and Google listing the way a customer would, then send you a short list of what to fix first. It's free, and you don't have to hire me.</p>
+          <a class="btn btn-navy" href="contact.html?service=checkup#book">Get my free check-up</a>
           <a href="tel:+1PHONE_DIGITS">Or call [PHONE]</a>
         </div>
       </div>

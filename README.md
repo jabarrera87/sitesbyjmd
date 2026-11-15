@@ -101,7 +101,7 @@ Until then, the form shows a "not connected yet" message. It already includes a 
   - Buttons press down slightly
 
   Movement is turned off for people who set "reduce motion" on their device, and everything stays visible if JavaScript fails.
-- **Drawn examples:** Each service on the Services page has an example drawn in code: a website on a computer and a phone, a Google listing with a printed review QR card, a month of care-plan updates, and a printed menu. They use made-up example businesses (Rosa's Tacos, Main Street Barber) and are captioned "Example". Swap in real client work when you have it.
+- **Drawn examples:** Each service on the Services page has an example drawn in code: a website on a computer and a phone, a Google listing with a printed review QR card, a month of care-plan updates, and a printed menu. They use generic names (Your Taco Shop, Your Barbershop) so nobody mistakes them for real businesses, and they're captioned "Example". Swap in real client work when you have it.
 
 ## Checks run
 

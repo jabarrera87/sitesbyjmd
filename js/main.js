@@ -73,18 +73,25 @@
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var callBtn = listing.querySelector(".call");
     var examples = [
-      ["Main Street Barber", "barber", "Pleasanton"],
-      ["Rosa's Tacos", "restaurant", "Poteet"],
-      ["Brush Country Auto", "mechanic", "Jourdanton"],
-      ["Lytle Lawn & Land", "landscaper", "Lytle"]
+      ["Your Barbershop", "barber", "Pleasanton"],
+      ["Your Taco Shop", "restaurant", "Poteet"],
+      ["Your Auto Shop", "mechanic", "Jourdanton"],
+      ["Your Landscaping Co.", "landscaper", "Lytle"]
     ];
     var demoOn = !reduce && "IntersectionObserver" in window;
     var demoTimers = [];
-    var stopDemo = function () {
-      if (!demoOn) return;
-      demoOn = false;
+    var demoBtn = document.getElementById("demo-toggle");
+    var demoIndex = 0;
+    var halt = function () {
       demoTimers.forEach(clearTimeout);
+      demoTimers = [];
       outSearch.classList.remove("is-typing");
+    };
+    var stopDemo = function () {
+      if (!demoOn && (!demoBtn || demoBtn.hidden)) return;
+      demoOn = false;
+      halt();
+      if (demoBtn) demoBtn.hidden = true;
       update(false);
     };
     ["focusin", "pointerdown"].forEach(function (ev) { form.addEventListener(ev, stopDemo); });
@@ -92,6 +99,7 @@
     var later = function (fn, ms) { demoTimers.push(setTimeout(fn, ms)); };
     var runExample = function (i) {
       if (!demoOn) return;
+      demoIndex = i;
       var ex = examples[i % examples.length];
       var query = ex[1] + " near " + ex[2];
       outSearch.textContent = "";
@@ -116,6 +124,23 @@
       }, query.length * 45 + 900);
       later(function () { runExample(i + 1); }, query.length * 45 + 3600);
     };
+    if (demoOn && demoBtn) {
+      demoBtn.hidden = false;
+      demoBtn.addEventListener("click", function () {
+        var paused = demoBtn.getAttribute("aria-pressed") === "true";
+        if (paused) {
+          demoBtn.setAttribute("aria-pressed", "false");
+          demoBtn.textContent = "Pause demo";
+          demoOn = true;
+          runExample(demoIndex + 1);
+        } else {
+          demoBtn.setAttribute("aria-pressed", "true");
+          demoBtn.textContent = "Play demo";
+          demoOn = false;
+          halt();
+        }
+      });
+    }
     if (demoOn) {
       var phone = document.querySelector(".phone");
       var started = false;

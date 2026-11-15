@@ -262,6 +262,28 @@ html { scrollbar-color: var(--navy-3) var(--navy); accent-color: var(--lime); }
 @media (min-width: 48em) { .promises ul { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 70em) { .promises ul { grid-template-columns: repeat(4, 1fr); } }
 
+/* ---------- Promise statement ---------- */
+.promise { background: var(--navy-2); padding-block: clamp(3.5rem, 2.5rem + 4vw, 6rem); }
+.promise-grid { display: grid; gap: var(--space-3); }
+.promise-line { font: 600 clamp(1.625rem, 1.1rem + 2vw, 2.75rem)/1.15 var(--font-display); letter-spacing: -0.03em; max-width: 28ch; }
+.promise-side { color: var(--ink-soft); max-width: 22rem; }
+@media (min-width: 60em) { .promise-grid { grid-template-columns: 1fr auto; align-items: end; gap: var(--space-5); } }
+
+/* ---------- Who I build for ---------- */
+.who-list { list-style: none; display: flex; flex-wrap: wrap; gap: 0.15em 0.6em; font: 600 clamp(2rem, 1.2rem + 3.4vw, 4.5rem)/1.05 var(--font-display); letter-spacing: -0.04em; }
+.who-list li { color: var(--ink); }
+.who-list li:nth-child(3n+2) { color: var(--ink-soft); }
+.who-list li:not(:last-child)::after { content: ","; color: var(--ink-soft); }
+.who-list li:nth-child(3n+2)::after { color: var(--ink-soft); }
+
+/* ---------- Demo pause ---------- */
+.demo-toggle {
+  background: none; border: 0; color: var(--ink-soft); font: 500 var(--step-small) var(--font-body);
+  text-decoration: underline; text-underline-offset: 0.2em; cursor: pointer; padding: 0.5rem;
+}
+.demo-toggle:hover { color: var(--ink); }
+.demo-toggle[hidden] { display: none; }
+
 /* ---------- Section heads ---------- */
 .section-head { display: grid; gap: var(--space-3); margin-bottom: var(--space-5); }
 .section-head p { color: var(--ink-soft); }
