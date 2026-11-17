@@ -241,3 +241,47 @@
     groups.forEach(function (g) { io.observe(g); });
   }
 })();
+
+/* Label template preview (labels page) */
+(function () {
+  "use strict";
+  var form = document.getElementById("label-form");
+  if (!form) return;
+  var $ = function (id) { return document.getElementById(id); };
+  var label = $("lb-label");
+  var bind = function (inputId, outId, fallback) {
+    var input = $(inputId), out = $(outId);
+    var set = function () { out.textContent = input.value.trim() || input.getAttribute("placeholder") || fallback; };
+    input.addEventListener("input", set);
+    set();
+  };
+  bind("lb-biz", "lb-out-biz");
+  bind("lb-product", "lb-out-product");
+  bind("lb-ing", "lb-out-ing");
+  bind("lb-addr", "lb-out-addr");
+
+  var contains = $("lb-out-contains");
+  var boxes = form.querySelectorAll('input[name="allergen"]');
+  var setAllergens = function () {
+    var picked = [];
+    boxes.forEach(function (b) { if (b.checked) picked.push(b.value); });
+    contains.hidden = picked.length === 0;
+    contains.textContent = "Contains: " + picked.join(", ");
+  };
+  boxes.forEach(function (b) { b.addEventListener("change", setAllergens); });
+  setAllergens();
+
+  var tcs = $("lb-tcs"), pickled = $("lb-pickled");
+  var setExtras = function () {
+    $("lb-out-made").hidden = !tcs.checked;
+    $("lb-out-safe").hidden = !tcs.checked;
+    $("lb-out-batch").hidden = !pickled.checked;
+  };
+  tcs.addEventListener("change", setExtras);
+  pickled.addEventListener("change", setExtras);
+
+  form.querySelectorAll('input[name="labelstyle"]').forEach(function (r) {
+    r.addEventListener("change", function () { label.className = "label label--" + r.value; });
+  });
+  form.addEventListener("submit", function (e) { e.preventDefault(); });
+})();

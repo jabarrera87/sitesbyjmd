@@ -6,7 +6,8 @@ The JM Designs website: plain HTML, one stylesheet, a small amount of vanilla Ja
 
 ```
 index.html         Home: hero with live listing preview, services, Meet Jacob, process, work, check-up CTA
-services.html      Four services with what's included and prices, plus the free check-up offer
+services.html      Five services with what's included and prices, plus the free check-up offer
+labels.html        Cottage food labels: how it works, live label template preview, Texas label checklist, what I print, FAQ
 process.html       The 7-step process with time frames, and the FAQ
 contact.html       Contact form, direct contact details, what happens next
 privacy.html       Privacy policy (draft)
@@ -78,6 +79,13 @@ All photos are WebP, 1536px wide or less, under 200KB each.
 - **Recent work:** Add three project screenshots (`images/work-1.jpg` etc.) with real business names in `index.html`. If you don't have three yet, delete the "Recent work" section until you do.
 - **Testimonials:** Add real client quotes only, in `index.html` and `process.html`. Copy the text from your Google reviews with permission.
 - **Social share image:** `images/og-image.png` is a simple generated version. Replace it with a 1200×630 design if you like.
+
+## Cottage food labels page
+
+- **Model:** You provide templates, the customer fills in their own details, and you print. Formats are product labels, bag labels, thank-you stickers and logo stickers.
+- **Texas checklist:** Taken from the Texas DSHS cottage food page (https://www.dshs.texas.gov/foodestablishments/cfpo) as of November 2026, after SB 541. Re-check it whenever Texas changes the law.
+- **Disclaimer:** The page says you design and print from the customer's information, they're responsible for its accuracy, and it isn't legal advice. Keep this line.
+- **To fill in:** prices and quantities for each format, template setup price, proof and print turnaround, and label materials (marked [DRAFT]).
 
 ## Draft copy to confirm
 
