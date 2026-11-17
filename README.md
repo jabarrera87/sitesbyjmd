@@ -53,8 +53,7 @@ Search the project for each placeholder and replace every match.
 | `[CITY]` | The town you live and work in | index.html (Meet Jacob), schema |
 | `[PRICE]` | Starting prices for each service and the care plan | index.html, services.html, process.html |
 | `[N]` / `[WEEKS]` | Page counts, revision rounds, timelines | services.html, process.html, index.html |
-| `BOOKING_URL` | Your scheduling link (Calendly, Google Calendar booking, etc.) | contact.html |
-| `FACEBOOK_URL`, `INSTAGRAM_URL` | Your social profiles. Delete the line if you don't use one | Footer |
+| Scheduling link, Facebook, Instagram | These are hidden until you have them, so there are no broken links. Send them over and they'll be switched on | Contact page, footer |
 | `FORM_ENDPOINT` | Form service address (see below) | contact.html |
 | `[FORM SERVICE]`, `[DATE]` | The form service name and today's date | privacy.html |
 
